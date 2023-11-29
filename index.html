@@ -1,29 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href='https://fonts.googleapis.com/css?family=Figtree' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-    font-family: 'Figtree';font-size: 20px;
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 </style>
+  <link href='https://fonts.googleapis.com/css?family=Figtree' rel='stylesheet'>
+  <style>
+  body {
+      font-family: 'Figtree';font-size: 20px;
+
+  </style>
 </head>
 <body>
 
 <h1>&euro;ddie$</h1>
-<h3>Opt | In</h3>
-<b>You can only opt-in to someone's &euro;ddie$ if you meet them or whoever rightfully received their &euro;ddie$ in person or if it's a business you trust.<b>
 
-<h3>Id | Idea</h3>
-<b>Best practice is to let someone id themselves before you opt-in to their &euro;ddie$. <b>
+<button class="accordion">Opt | In</button>
+<div class="panel">
+  <p> <b>You can only opt-in to someone's &euro;ddie$ if you meet them or whoever rightfully received their &euro;ddie$ in person or if it's a business you trust.<b></p>
+</div>
 
-<h3>Bank | transfer</h3>
-<b>It's also adviced to let someone make a bank transfer to you, to add another layer to their id.<b>
+<button class="accordion">Id | Idea</button>
+<div class="panel">
+  <p> <b>Best practice is to let someone id themselves before you opt-in to their &euro;ddie$. <b>
 
-<h3>Judge</h3>
-<b>Not everyone has a id or bank account, so be cautious and use others or your own judgement to proceed.<b>
+</p>
+</div>
 
-<h3>Incentive</h3>
-<b>If you weed out people who doublespend, scam, steal or have a bad reputation, that contribute to your own rep. Every feedback must be presented with proof of facts, costing 1 &euro;ddie$ per proof. &euro;ddie$ can also be loaned to proof a fact.<b>
+<button class="accordion">Bank | transfer</button>
+<div class="panel">
+  <p><b>It's also adviced to let someone make a bank transfer to you, to add another layer to their id.<b>  
+</p>
+</div>
+
+<button class="accordion">Judge</button>
+<div class="panel">
+  <p><b>Not everyone has a id or bank account, so be cautious and use others or your own judgement to proceed.<b></p>
+</div>
+
+
+<button class="accordion">Incentive</button>
+<div class="panel">
+  <p><b>If you weed out people who doublespend, scam, steal or have a bad reputation, that contribute to your own rep. Every feedback must be presented with proof of facts, costing 1 &euro;ddie$ per proof. &euro;ddie$ can also be loaned to proof a fact.<b>
+</p>
+</div>
+
+
+
+</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
 </body>
 </html>
